@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시판 | SSulbing</title>
+  <link rel="stylesheet" href="board.css">
+</head>
+<body>
+
+  <!-- ✅ Header -->
+  <header>
+    <h1>SSulbing</h1>
+    <nav>
+      <a href="main.html">홈</a>
+      <a href="about.html">회사소개</a>
+      <a href="board.html">게시판</a>
+      <a href="login/login.html">로그인</a>
+    </nav>
+  </header>
+
+  <!-- ✅ 게시판 리스트 -->
+  <section class="board-container">
+    <h2>📋 게시판</h2>
+
+    <table class="board-table">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>날짜</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>3</td>
+          <td><a href="#">6월 신메뉴 후기</a></td>
+          <td>홍길동</td>
+          <td>2025-06-28</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="#">설빙 인절미 맛있어요!</a></td>
+          <td>이영희</td>
+          <td>2025-06-25</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="#">방문후기 남깁니다</a></td>
+          <td>김철수</td>
+          <td>2025-06-22</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ✅ 글쓰기 버튼 -->
+    <div class="board-actions">
+      <a href="write.html" class="write-btn">글쓰기</a>
+    </div>
+  </section>
+
+</body>
+</html>

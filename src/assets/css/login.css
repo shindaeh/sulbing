@@ -1,0 +1,157 @@
+/* ✅ 기본 설정 */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+/* ✅ 헤더 */
+header {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* ✅ 로그인 폼 컨테이너 */
+.auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ✅ 로그인/회원가입 공통 폼 스타일 */
+.auth-form {
+  margin-top: 20px;
+}
+
+.auth-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.auth-form button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  background-color: #57b894;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.auth-form button:hover {
+  background-color: #409a7a;
+}
+
+/* ✅ 회원가입 버튼 */
+.toggle-signup {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.toggle-signup button {
+  background-color: transparent;
+  border: none;
+  color: #0077cc;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggle-signup button:hover {
+  text-decoration: underline;
+}
+
+/* ✅ 에러 메시지 */
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ✅ 모달 오버레이 */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+/* ✅ 모달 콘텐츠 */
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+/* ✅ 모달 닫기 버튼 */
+.modal-close {
+  margin-top: 15px;
+  width: 100%;
+  background-color: #bbb;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background-color: #999;
+}
+
+/* ✅ 반응형 */
+@media screen and (max-width: 500px) {
+  .auth-container, .modal-content {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  nav a {
+    display: block;
+    margin: 5px 0;
+  }
+}

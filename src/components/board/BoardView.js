@@ -73,7 +73,7 @@ const BoardView = () => {
           </tr>
           <tr>
             <th width="20%">조회수</th>
-            <td>{boardDetail.readcount}</td>
+            <td>{boardDetail.readCount}</td>
           </tr>
           <tr>
             <th>제목</th>

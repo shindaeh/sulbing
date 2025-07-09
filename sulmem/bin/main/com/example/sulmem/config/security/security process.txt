@@ -1,0 +1,47 @@
+[1] Spring Security 인증 필터 처리 흐름도
+
+HTTP 요청 (/login)  ─▶  SecurityFilterChain  
+                            │  
+                            ▼  
+      ┌───────────────────────────────────────────────┐  
+      │ UsernamePasswordAuthenticationFilter          │ ←─── "/login" 요청에 반응  
+      │  (extends AbstractAuthenticationProcessingFilter)  
+      └───────────────────────────────────────────────┘  
+                            │  
+                            ▼  
+     attemptAuthentication(HttpServletRequest req)  
+                            │  
+                            ▼  
+     ▶ Username, Password 추출  
+     ▶ UsernamePasswordAuthenticationToken 생성  
+     ▶ AuthenticationManager.authenticate(token) 호출  
+                            │  
+                            ▼  
+     ┌───────────────────────────────────────────────┐  
+     │ AuthenticationProvider                        │  
+     │  (ex: DaoAuthenticationProvider)              │  
+     └───────────────────────────────────────────────┘  
+                            │  
+                            ▼  
+     ▶ UserDetailsService.loadUserByUsername() 호출  
+     ▶ 비밀번호 검증 (PasswordEncoder)  
+                            │  
+        ┌───────────────┐   ▼  
+        │ 성공           │   │ 실패  
+        ▼               ▼   ▼  
+successfulAuth()    unsuccessfulAuth()  
+→ SecurityContext에 저장   → 예외 발생  
+→ 인증 성공 후 이동        → 에러 응답 반환
+
+
+
+[2] 주요 구성요소 간 역할 요약
+   구성요소										역할
+SecurityFilterChain							모든 요청을 필터링하며, 인증 관련 필터도 포함
+UsernamePasswordAuthenticationFilter	    /login  요청에서 사용자 ID/비밀번호를 처리
+AbstractAuthenticationProcessingFilter		인증 필터의 공통 처리 로직을 제공하는 상위 클래스
+AuthenticationManager						실제 인증 로직을 위임받아 수행
+AuthenticationProvider						특정 인증 방식(예: DB 기반) 구현
+UserDetailsService							DB에서 사용자 정보 로딩
+PasswordEncoder								비밀번호 검증
+SecurityContextHolder						인증된 사용자 정보를 보관하는 보안 컨텍스트

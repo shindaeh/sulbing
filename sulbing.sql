@@ -44,10 +44,10 @@ COMMIT;
 
 
 
-INSERT INTO board (num, subject, reg_date, read_count, ref, re_step, re_level, content, ip, upload, member_email ) VALUES ('1','팥인절미한잔설빙 출시!','25/07/01','15','1','0','0', '더우니깐 한잔해 빙수계의 탑티어, 드디어 즐길수있는 한잔빙수 출시','127.168.0.133','(null)', 'admin@google.com');
+INSERT INTO board (num, subject, reg_date, read_count, ref, re_step, re_level, content, ip, upload, member_email ) VALUES ('1','팥인절미한잔설빙 출시!','25/07/01','30','1','0','0', '더우니깐 한잔해 빙수계의 탑티어, 드디어 즐길수있는 한잔빙수 출시','127.168.0.133','(null)', 'admin@google.com');
 INSERT INTO board (num, subject, reg_date, read_count, ref, re_step, re_level, content, ip, upload, member_email ) VALUES ('2','팥인절미두잔설빙 출시!','25/07/01','0','2','0','0', '더우니깐 많이먹어요','127.168.0.133','(null)', 'admin@google.com');
 INSERT INTO board (num, subject, reg_date, read_count, ref, re_step, re_level, content, ip, upload, member_email ) VALUES ('3','강남점 단독이벤트!','25/07/01','7','3','0','0', '선착순 10명 무료알바의 기회제공','127.168.0.133','(null)', 'admin@google.com');
-
+INSERT INTO board (num, subject, reg_date, read_count, ref, re_step, re_level, content, ip, upload, member_email ) VALUES ('4','수정상항','25/07/09','0','4','0','0', '게시글제한수정','127.168.0.133','(null)', 'admin@google.com');
 
 
 SELECT b FROM BoardEntity b WHERE b.num = :num;

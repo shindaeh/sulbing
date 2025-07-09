@@ -18,9 +18,9 @@ const TableRow = ({ board, currentPage }) => {
           </>
         )}
         <Link to={`/board/view/${currentPage}/${board.num}`}>
-         {board.subject}
-         </Link>
-         {board.readCount >= 5 ? <img alt="hot" src="/images/hot.gif"/> : null}
+          {board.subject}
+        </Link>
+        {board.readCount >= 30 ? <img alt="hot" src="/images/hot.gif" /> : null}
       </td>
       <td>{board.memberEmail}</td>
       <td>{board.readCount}</td>

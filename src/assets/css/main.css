@@ -48,13 +48,23 @@ nav a {
 
 .item {
   width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .item img {
-  width: 100%;
-  border-radius: 12px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.5rem; 
 }
-
+.item p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
 .notice {
   padding: 20px;
   background-color: #fff5f5;

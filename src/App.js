@@ -15,6 +15,9 @@ import ProtectedRoute from "./components/layout/ProtectedRoute";
 import { AuthProvider } from "./components/layout/AuthProvider";
 import Main from './pages/Main';
 import About from './pages/About';
+import StrawberryPage from './pages/StrawberryPage';
+import InjeolmiPage from "./pages/InjeolmiPage";
+import MangoPage from "./pages/MangoPage";
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
         <Routes>
           <Route path="/" element={<BaseLayout />}>
             <Route index element={<Main />} />
+            <Route path="menu/strawberry" element={<StrawberryPage />} />
+            <Route path="menu/injeolmi" element={<InjeolmiPage />} />
+            <Route path="menu/mango" element={<MangoPage />} />
             <Route path='about' element={<About/>}/>
             <Route path="board/list/:currentPage" element={<BoardList />} />
             <Route path="board/view/:currentPage/:num" element={<BoardView />} />

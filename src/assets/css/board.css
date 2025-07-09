@@ -68,6 +68,17 @@ nav a {
   text-align: right;
 }
 
+.item img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.3s ease; /* 부드럽게 변형 */
+}
+
+.item img:hover {
+  transform: scale(1.1); /* 마우스를 올렸을 때 10% 확대 */
+}
+
+
 /* ✅ 반응형 */
 @media screen and (max-width: 600px) {
   .board-table, .board-table thead, .board-table tbody, .board-table th, .board-table td, .board-table tr {

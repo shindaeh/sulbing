@@ -78,6 +78,14 @@ public class BoardServiceImp implements BoardService {
 
 	@Transactional
 	@Override
+	public BoardDTO updateViewProcess(long num) {		
+		BoardEntity boardEntity = boardRepository.findWithMemberNameByNum(num);
+		return BoardDTO.toDTO(boardEntity);
+	}
+	
+	
+	@Transactional
+	@Override
 	public void updateProcess(BoardDTO dto, String tempDir) {
 		String filename = dto.getUpload();
 		// 수정할 첨부파일이 있으면

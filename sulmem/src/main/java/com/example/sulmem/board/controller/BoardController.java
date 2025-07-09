@@ -106,6 +106,16 @@ public class BoardController {
 		System.out.println(boardDTO);
 		return ResponseEntity.ok(boardDTO);
 	}
+	
+	// 수정페이지 조회
+		@GetMapping(value = "/board/updateView/{num}")
+		public ResponseEntity<BoardDTO> updateViewExecute(@PathVariable("num") Long num) {
+			BoardDTO boardDTO = boardService.updateViewProcess(num);
+			System.out.println(boardDTO);
+			return ResponseEntity.ok(boardDTO);
+		}
+		
+		
 
 	@PreAuthorize("hasAnyRole('ADMIN','USER')")
 	@PutMapping(value = "/board/update")

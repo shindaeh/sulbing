@@ -1,42 +1,41 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import interceptors from '../token/interceptors';
+import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import interceptors from "../token/interceptors";
+import instance from "../token/interceptors";
 
 const JoinAdd = () => {
+  const navigate = useNavigate();
+  const [members, setMembers] = useState({
+    memberEmail: "",
+    memberPass: "",
+    memberName: "",
+    memberPhone: "",
+    authRole: "USER",
+  });
 
-    const navigate = useNavigate();
-    const[members, setMembers] = useState({
-        memberEmail:"",
-        memberPass:"",
-        memberName:"",
-        memberPhone:"",
-        authRole:"USER",
+  const handleValueChange = (e) => {
+    setMembers((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
     });
+  };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
 
-    const handleValueChange = (e) => {
-         setMembers((prev)=> {
-            return {...prev, [e.target.name]: e.target.value};
-        });
-    };
+    await instance
+      .post(`/member/signup`, members)
+      .then((response) => {
+        console.log(response.data);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("signup 오류:", error.message);
+      });
+  };
 
-
-    const onSubmit = async(e) => {
-        e.preventDefault();
-        
-        await instance
-        .post(`/member/signup`, members)
-        .then((response) => { console.log(response.data);
-            navigate("/");
-        })
-        .catch((error)=>{
-            console.log("signup 오류:", error.message);
-        });
-    };
-
-    return (
-<div className="container">
+  return (
+    <div className="container">
       <form onSubmit={onSubmit}>
         <div className="container">
           <h1>회원가입</h1>
@@ -68,7 +67,6 @@ const JoinAdd = () => {
             />
           </div>
 
-
           <div className="form-group mb-1">
             <input
               type="text"
@@ -78,7 +76,6 @@ const JoinAdd = () => {
               onChange={handleValueChange}
             />
           </div>
-
 
           <div className="form-group mb-1">
             <div className="form-check form-check-inline">
@@ -95,7 +92,6 @@ const JoinAdd = () => {
               </label>
             </div>
 
-
             <div className="form-check form-check-inline">
               <input
                 type="radio"
@@ -111,21 +107,13 @@ const JoinAdd = () => {
             </div>
           </div>
 
-
-
-
           <button type="submit" className="btn btn-primary">
             가입 완료
           </button>
         </div>
       </form>
     </div>
-
-
-
-
-
-    );
+  );
 };
 
 export default JoinAdd;

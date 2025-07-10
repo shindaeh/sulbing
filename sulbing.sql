@@ -32,6 +32,7 @@ CREATE TABLE   board(
    CONSTRAINT board_memberEmail FOREIGN KEY(member_email) REFERENCES members(member_email)
 );
 
+ALTER TABLE board MODIFY (content VARCHAR2(200));
 
 
 

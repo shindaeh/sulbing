@@ -1,0 +1,51 @@
+.menu-detail-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background-color: #fefefe;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.menu-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ff5c5c;
+}
+
+.menu-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.menu-description {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.menu-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.menu-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ff5c5c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-button:hover {
+  background-color: #e04848;
+}

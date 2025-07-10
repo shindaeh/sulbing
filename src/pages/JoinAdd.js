@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import interceptors from "../token/interceptors";
+
 import instance from "../token/interceptors";
 
 const JoinAdd = () => {

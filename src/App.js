@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // ✅ Router 제거
+import React from "react";
+import { Routes, Route } from "react-router-dom"; // ✅ Router 제거
 import "./App.css";
 import BaseLayout from "./components/layout/BaseLayout";
 import BoardList from "./components/board/BoardList";
@@ -13,20 +13,28 @@ import EditInfo from "./pages/EditInfo";
 import MemberRemove from "./pages/MemberRemove";
 import ProtectedRoute from "./components/layout/ProtectedRoute";
 import { AuthProvider } from "./components/layout/AuthProvider";
-import Main from './pages/Main';
-import About from './pages/About';
+import Main from "./pages/Main";
+import About from "./pages/About";
+import StrawberryPage from "./pages/StrawberryPage";
+import InjeolmiPage from "./pages/InjeolmiPage";
+import MangoPage from "./pages/MangoPage";
 
 function App() {
   return (
     <AuthProvider>
       <div className="container">
-        
         <Routes>
           <Route path="/" element={<BaseLayout />}>
             <Route index element={<Main />} />
-            <Route path='about' element={<About/>}/>
+            <Route path="menu/strawberry" element={<StrawberryPage />} />
+            <Route path="menu/injeolmi" element={<InjeolmiPage />} />
+            <Route path="menu/mango" element={<MangoPage />} />
+            <Route path="about" element={<About />} />
             <Route path="board/list/:currentPage" element={<BoardList />} />
-            <Route path="board/view/:currentPage/:num" element={<BoardView />} />
+            <Route
+              path="board/view/:currentPage/:num"
+              element={<BoardView />}
+            />
             <Route
               path="board/write"
               element={

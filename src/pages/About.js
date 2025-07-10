@@ -1,16 +1,15 @@
 import React from "react";
-import Header from "../components/Header";
+
 import "../assets/css/about.css";
 
 const About = () => {
   return (
     <div>
-
       <section className="intro">
         <h2>설빙은 맛과 문화를 담는 디저트 브랜드입니다.</h2>
         <p>
-          2013년, 전통과 현대의 조화를 담은 <strong>인절미 설빙</strong>으로 시작한
-          설빙은
+          2013년, 전통과 현대의 조화를 담은 <strong>인절미 설빙</strong>으로
+          시작한 설빙은
           <br />
           이제 국내외 수백 개 매장을 가진 글로벌 디저트 카페로 성장했습니다.
         </p>

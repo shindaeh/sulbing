@@ -1,7 +1,7 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import instance from '../../token/interceptors';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import instance from "../../token/interceptors";
 
 const BoardView = () => {
   const { currentPage, num } = useParams();
@@ -23,25 +23,27 @@ const BoardView = () => {
   const handleDownload = async () => {
     await instance
       .get(`/board/contentdownload/${boardDetail.upload}`, {
-        responseType: 'blob',
+        responseType: "blob",
       })
       .then((response) => {
         const boardFile = response.data;
         const fileName = boardDetail.upload.substring(
-          boardDetail.upload.indexOf('_') + 1
+          boardDetail.upload.indexOf("_") + 1
         );
 
-        const url = window.URL.createObjectURL(new Blob([boardFile], { type: 'application/octet-stream' }));
-        const link = document.createElement('a');
+        const url = window.URL.createObjectURL(
+          new Blob([boardFile], { type: "application/octet-stream" })
+        );
+        const link = document.createElement("a");
         link.href = url;
         link.download = fileName;
-        link.style.cssText = 'display:none';
+        link.style.cssText = "display:none";
         document.body.appendChild(link);
         link.click();
         link.remove();
       })
       .catch((error) => {
-        console.log('content download error', error.message);
+        console.log("content download error", error.message);
       });
   };
 
@@ -51,11 +53,11 @@ const BoardView = () => {
     await instance
       .delete(`/board/delete/${num}`)
       .then((response) => {
-        alert('삭제되었습니다.');
+        alert("삭제되었습니다.");
         navigate(`/board/list/${currentPage}`);
       })
       .catch((error) => {
-        console.log('delete error:', error.message);
+        console.log("delete error:", error.message);
       });
   };
 
@@ -85,7 +87,7 @@ const BoardView = () => {
           </tr>
           <tr>
             <th>내용</th>
-            <td colSpan="3" style={{ whiteSpace: 'pre-line' }}>
+            <td colSpan="3" style={{ whiteSpace: "pre-line" }}>
               {boardDetail.content}
             </td>
           </tr>
@@ -95,7 +97,7 @@ const BoardView = () => {
               <button onClick={handleDownload}>
                 {boardDetail.upload &&
                   boardDetail.upload.substring(
-                    boardDetail.upload.indexOf('_') + 1
+                    boardDetail.upload.indexOf("_") + 1
                   )}
               </button>
             </td>
@@ -113,11 +115,11 @@ const BoardView = () => {
         답변
       </Link>
 
-      {localStorage.getItem('memberEmail') === boardDetail.memberEmail ? (
+      {localStorage.getItem("memberEmail") === boardDetail.memberEmail ? (
         <>
           <Link
-          className="btn btn-primary" 
-          to={`/board/update/${currentPage}/${num}`}
+            className="btn btn-primary"
+            to={`/board/update/${currentPage}/${num}`}
           >
             수정
           </Link>

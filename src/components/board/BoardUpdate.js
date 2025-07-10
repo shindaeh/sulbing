@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import instance from "../../token/interceptors";
+import { Alert } from "bootstrap";
 
 const BoardUpdate = () => {
   const navigate = useNavigate();
@@ -28,10 +29,10 @@ const BoardUpdate = () => {
   };
 
   const handleValueChange = (e) => {
-    const content_length = 300;
+    const contentLength = 200;
     setInputs((prev) => {
-      if (e.target.value.length > content_length)
-        alert(`최대 ${content_length}자까지 입력가능합니다.`);
+      if (e.target.value.length > contentLength)
+        alert(`최대 ${contentLength}자까지 입력가능합니다.`);
       return { ...prev, [e.target.name]: e.target.value };
     });
   };

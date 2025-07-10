@@ -1,64 +1,76 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import instance from '../../token/interceptors';
+import axios from "axios";
+import React, { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import instance from "../../token/interceptors";
+import { isVisible } from "@testing-library/user-event/dist/utils";
 
 const BoardWrite = () => {
-    const navigate = useNavigate();
-    const {currentPage, num, ref, reStep, reLevel } = useParams();
-    const [inputs, setInputs] = useState({
-        subject:"",
-        content:"",
-        filename: null,
+  const navigate = useNavigate();
+  const { currentPage, num, ref, reStep, reLevel } = useParams();
+  const [inputs, setInputs] = useState({
+    subject: "",
+    content: "",
+    filename: null,
+  });
+  const { subject, content, filename } = inputs;
+
+  const handleValueChange = (e) => {
+    const contentLength = 200;
+    setInputs((prev) => {
+      if (e.target.value.length > contentLength)
+        alert(`최대 ${contentLength}자까지 입력가능합니다.`);
+      return { ...prev, [e.target.name]: e.target.value };
     });
-        const {subject, content, filename} = inputs;
+  };
+  const handleFileChange = (e) => {
+    setInputs((prev) => {
+      return { ...prev, [e.target.name]: e.target.files[0] };
+    });
+  };
 
-    const handleValueChange=(e)=>{
-        setInputs((prev) => {
-            return {...prev, [e.target.name]:e.target.value};
-        });
-    };
-    const handleFileChange=(e) => {
-        setInputs((prev)=> {
-            return {...prev, [e.target.name]: e.target.files[0]};
-        });
-    };
+  const handleNumChange = (e) => {
+    e.preventDefault();
+    const maxLength = 200;
 
-    const onSubmit = async(e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append("subject", subject);
-        formData.append("content", content);
-        formData.append("memberEmail", localStorage.getItem("memberEmail"));
-        if(filename != null) formData.append("filename", filename);
+    setInputs(e.target.content.length);
+  };
 
-        //답변글이면
-        if (num !== undefined) {
-            formData.append("num",num);
-            formData.append("ref",ref);
-            formData.append("reStep", reStep);
-            formData.append("reLevel",reLevel);
-        }
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("subject", subject);
+    formData.append("content", content);
+    formData.append("memberEmail", localStorage.getItem("memberEmail"));
+    if (filename != null) formData.append("filename", filename);
 
-        const config = {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-        };
+    //답변글이면
+    if (num !== undefined) {
+      formData.append("num", num);
+      formData.append("ref", ref);
+      formData.append("reStep", reStep);
+      formData.append("reLevel", reLevel);
+    }
 
-        await instance.post(`/board/write`, formData, config)
-        .then((response)=> {
-            setInputs({subject:"",content:"", filename: null});
-            navigate(`/board/list/${num ? currentPage : 1}`);
-        })
-        .catch((error)=> {
-            console.log("글쓰기 오류:",error.message);
-        });
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
     };
 
-    return (
+    await instance
+      .post(`/board/write`, formData, config)
+      .then((response) => {
+        setInputs({ subject: "", content: "", filename: null });
+        navigate(`/board/list/${num ? currentPage : 1}`);
+      })
+      .catch((error) => {
+        console.log("글쓰기 오류:", error.message);
+      });
+  };
+
+  return (
     <>
-             <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
         <table>
           <tbody>
             <tr>
@@ -99,10 +111,14 @@ const BoardWrite = () => {
                 ></textarea>
               </td>
             </tr>
+
+            <tr>{content.length}/200</tr>
+
             <tr>
               <th width="20%" align="center">
                 첨부파일
               </th>
+
               <td>
                 <input
                   type="file"
@@ -119,9 +135,8 @@ const BoardWrite = () => {
         </Link>
         <input type="submit" className="btn btn-primary" value="등록" />
       </form>
-
-        </>
-    );
+    </>
+  );
 };
 
 export default BoardWrite;

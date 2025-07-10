@@ -52,7 +52,7 @@ function Main() {
 
       {/* ✅ 인기 메뉴 */}
       <section className="menu">
-        <h2>인기 메뉴 </h2>
+        <h2 style={{ fontWeight: "bold" }}>인기 메뉴 </h2>
         <div className="menu-items">
           <div className="item">
             <Link to="/menu/strawberry">
@@ -77,7 +77,7 @@ function Main() {
 
       {/* ✅ 공지사항 */}
       <section className="notice">
-        <h2>📢 공지사항</h2>
+        <h2 style={{ fontWeight: "bold" }}>📢 공지사항</h2>
         <ul>
           <Link to="notice" class="link-dark">
             <li>6월 신메뉴 출시!</li>

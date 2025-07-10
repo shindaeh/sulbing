@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
+import { Link } from "react-router-dom";
 
 const activeStyle = ({ isActive }) => ({
   color: isActive ? "green" : "",
@@ -14,7 +15,17 @@ const BaseLayout = () => {
     <div>
       {/* ✅ 상단 로고 또는 배너 */}
       <header className="text-center mt-3">
-        <img src="/images/main_banner.jpg" alt="설빙 배너" style={{ width: "100%", maxHeight: "200px", objectFit: "cover" }} />
+        <Link to="/">
+          <img
+            src="/images/main_banner.jpg"
+            alt="설빙 배너"
+            style={{
+              width: "100%",
+              maxHeight: "200px",
+              objectFit: "cover",
+            }}
+          />
+        </Link>
       </header>
 
       {/* ✅ 네비게이션 */}
@@ -22,36 +33,65 @@ const BaseLayout = () => {
         <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink style={activeStyle} className="nav-link" to="/">홈</NavLink>
+              <NavLink style={activeStyle} className="nav-link" to="/">
+                홈
+              </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink style={activeStyle} className="nav-link" to="/about">회사소개</NavLink>
+              <NavLink style={activeStyle} className="nav-link" to="/about">
+                회사소개
+              </NavLink>
             </li>
 
             {!isAuthenticated ? (
               <>
                 <li className="nav-item">
-                  <NavLink style={activeStyle} className="nav-link" to="/login">로그인</NavLink>
+                  <NavLink style={activeStyle} className="nav-link" to="/login">
+                    로그인
+                  </NavLink>
                 </li>
               </>
             ) : (
               <>
                 <li className="nav-item">
-                  <NavLink style={activeStyle} className="nav-link" to="/logout">
-                    {localStorage.getItem("memberName")} <span style={{ fontSize: "10px" }}>로그아웃</span>
+                  <NavLink
+                    style={activeStyle}
+                    className="nav-link"
+                    to="/logout"
+                  >
+                    {localStorage.getItem("memberName")}{" "}
+                    <span style={{ fontSize: "10px" }}>로그아웃</span>
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink style={activeStyle} className="nav-link" to="/editinfo">회원수정</NavLink>
+                  <NavLink
+                    style={activeStyle}
+                    className="nav-link"
+                    to="/editinfo"
+                  >
+                    회원수정
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink style={activeStyle} className="nav-link" to="/memberremove">회원탈퇴</NavLink>
+                  <NavLink
+                    style={activeStyle}
+                    className="nav-link"
+                    to="/memberremove"
+                  >
+                    회원탈퇴
+                  </NavLink>
                 </li>
               </>
             )}
 
             <li className="nav-item">
-              <NavLink style={activeStyle} className="nav-link" to="/board/list/1">게시판</NavLink>
+              <NavLink
+                style={activeStyle}
+                className="nav-link"
+                to="/board/list/1"
+              >
+                게시판
+              </NavLink>
             </li>
           </ul>
         </div>

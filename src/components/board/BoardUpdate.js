@@ -28,10 +28,14 @@ const BoardUpdate = () => {
   };
 
   const handleValueChange = (e) => {
+    const content_length = 300;
     setInputs((prev) => {
+      if (e.target.value.length > content_length)
+        alert(`최대 ${content_length}자까지 입력가능합니다.`);
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
+
   const handleFileChange = (e) => {
     setInputs((prev) => {
       return { ...prev, [e.target.name]: e.target.files[0] };

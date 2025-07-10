@@ -10,7 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.10.0",
     "blog": "^1.0.0",
-    "bootstrap": "^5.3.3",
+    "bootstrap": "^5.3.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
@@ -42,5 +42,4 @@
       "last 1 safari version"
     ]
   }
-
 }

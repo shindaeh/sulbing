@@ -44,6 +44,7 @@ const BoardUpdate = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+
     const formData = new FormData();
     formData.append("subject", subject);
     formData.append("content", content);

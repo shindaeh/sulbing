@@ -56,7 +56,9 @@ function Main() {
       <section className="notice">
         <h2>📢 공지사항</h2>
         <ul>
-          <li>6월 신메뉴 출시!</li>
+          <Link to="notice" class="link-dark">
+            <li>6월 신메뉴 출시!</li>
+          </Link>
         </ul>
       </section>
     </div>

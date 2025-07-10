@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
 import "../assets/css/main.css";
+import Footer from "./Footer";
 
 function Main() {
   const [showPopup, setShowPopup] = useState(true);
@@ -60,6 +61,13 @@ function Main() {
             <li>6월 신메뉴 출시!</li>
           </Link>
         </ul>
+      </section>
+
+      <hr className="text-success"></hr>
+
+      <section className="footer">
+        <img src="images\main_images\sulbing logo.jpg" alt="설빙로고" />
+        <Footer />
       </section>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
+import { Link } from "react-router-dom";
 
 const activeStyle = ({ isActive }) => ({
   color: isActive ? "green" : "",
@@ -12,10 +13,20 @@ const BaseLayout = () => {
 
   return (
     <div>
-      {/* ✅ 상단 로고 또는 배너 */}
-      <header className="text-center mt-3">
-        <img src="/images/main_banner.jpg" alt="설빙 배너" style={{ width: "100%", maxHeight: "200px", objectFit: "cover" }} />
-      </header>
+  {/* ✅ 상단 로고 또는 배너 */}
+  <header className="text-center mt-3">
+    <Link to="/">
+      <img
+        src="/images/main_banner.jpg"
+        alt="설빙 배너"
+        style={{
+          width: "100%",
+          maxHeight: "200px",
+          objectFit: "cover",
+        }}
+      />
+    </Link>
+  </header>
 
       {/* ✅ 네비게이션 */}
       <nav className="navbar navbar-expand-lg bg-body-tertiary">

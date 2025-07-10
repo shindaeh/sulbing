@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useState } from 'react';
 import '../App.css';
 import { Link } from "react-router-dom";
+import '../assets/css/main.css'
+
 
 function Main() {
+    const [showPopup, setShowPopup] = useState(true);
+
+  const handleClose = () => {
+    setShowPopup(false);
+  };
+
   return (
     <div>
+            {/* ✅ 팝업창 */}
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <img src="/images/main_images/main_banner_mo_wogcwly.jpg" alt="신메뉴" />
+            <button className="close-btn" onClick={handleClose}>닫기</button>
+          </div>
+        </div>
+      )}
+
       {/* ✅ 인기 메뉴 */}
       <section className="menu">
-        <h2>인기 메뉴 🍓</h2>
+        <h2>인기 메뉴</h2>
         <div className="menu-items">
           <div className="item">
             <Link to="/menu/strawberry">

@@ -1,24 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.css';
 import { Link } from "react-router-dom";
 import '../assets/css/main.css'
 
 
 function Main() {
-    const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    const popupClosedDate = localStorage.getItem('popupClosedDate');
+
+    if (!popupClosedDate || new Date(popupClosedDate) < new Date()) {
+      // localStorage에 없거나, 지난 날짜면 팝업 보여줌
+      setShowPopup(true);
+    }
+  }, []);
 
   const handleClose = () => {
     setShowPopup(false);
   };
 
+  const handleCloseToday = () => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(0, 0, 0, 0); // 자정 기준
+    localStorage.setItem('popupClosedDate', tomorrow.toISOString());
+    setShowPopup(false);
+  };
+
   return (
     <div>
-            {/* ✅ 팝업창 */}
+
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup-content">
-            <img src="/images/main_images/main_banner_mo_wogcwly.jpg" alt="신메뉴" />
-            <button className="close-btn" onClick={handleClose}>닫기</button>
+            <img src="/images/main_images/new_menu.jpg" alt="신메뉴" />
+            <div style={{ marginTop: '10px' }}>
+              <button className="close-btn" onClick={handleCloseToday}>하루 동안 보지 않기</button>
+              <button className="close-btn" onClick={handleClose} style={{ marginLeft: '10px' }}>닫기</button>
+            </div>
           </div>
         </div>
       )}
@@ -56,7 +76,7 @@ function Main() {
         </ul>
       </section>
     </div>
-  );
+    );
 }
 
 export default Main;

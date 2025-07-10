@@ -17,7 +17,7 @@ const BaseLayout = () => {
   <header className="text-center mt-3">
     <Link to="/">
       <img
-        src="/images/main_banner.jpg"
+        src="/images/main_images/main_banner.jpg"
         alt="설빙 배너"
         style={{
           width: "100%",

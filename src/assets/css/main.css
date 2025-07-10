@@ -150,11 +150,24 @@ nav a {
 }
 
 .close-btn {
-  margin-top: 10px;
-  background-color: #ff4d4d;
+  margin-top: 6px;
+  background-color: #ff6b6b; /* 기존보다 약간 밝은 빨강 */
   color: white;
+  padding: 4px 10px;         /* 크기 ↓ */
+  font-size: 0.85rem;        /* 폰트 작게 */
   border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 6px;        /* 살짝 더 둥글게 */
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.close-btn:hover {
+  background-color: #ff4d4d;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
 }

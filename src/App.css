@@ -7,6 +7,27 @@
   pointer-events: none;
 }
 
+/**/
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  width: 100%; /* ✅ 부모가 전체 너비 차지해야 margin-left: auto가 작동함 */
+}
+
+.login-right {
+  margin-left: auto; /* ✅ 핵심 */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+/**/
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -64,8 +64,10 @@ const Login = () => {
   };
 
   return (
-    <div className="container text-center mt-5">
-      <div className="mx-5">
+    <div className="full-screen-center-wrapper">
+      {/* <div className="container text-center mt-5"> */}
+      {/* div에 login-box 클래스 추가 */}
+      <div className="mx-5 login-box">
         <h1>로그인</h1>
         <form onSubmit={onsubmit}>
           <div className="form-group mt-1">
@@ -92,8 +94,8 @@ const Login = () => {
               onChange={handleValueChange}
             />
           </div>
-          <div className="mt-1">
-            <button type="submit" className="btn btn-primary">
+          <div className="mt-1 d-flex justify-content-center gap-2">
+            <button type="submit" className="btn btn-primary ">
               로그인
             </button>
             <Link className="btn btn-primary" to="/joinadd">

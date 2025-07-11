@@ -1,0 +1,140 @@
+/* 네비게이션 바 컨테이너 */
+.container-fluid {
+    display: flex ;
+    justify-content: space-between ;
+    align-items: center ;
+    width: 100% ;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
+    flex-wrap: nowrap !important; /* 한 줄 유지 */
+  }
+  
+  /* 네비게이션 메뉴 그룹 */
+  .navbar-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 1rem !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    list-style: none !important;
+    align-items: center !important;
+  }
+  
+  /* 메뉴 아이템 기본 스타일 */
+  .navbar-nav .nav-item {
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+  
+  /* 로그인 메뉴 그룹 오른쪽 정렬 */
+  .navbar-nav.ms-auto {
+    margin-left: auto !important;
+  }
+  
+  /* 반응형: 화면 너비 768px 이하일 때 */
+  @media (max-width: 768px) {
+    .container-fluid {      
+      align-items: center !important;
+    }
+  
+    .navbar-nav {
+      flex-direction: column ;
+      width: 100% ;
+      align-items: center ;
+      margin-bottom: 1rem ;
+      text-align: center ;
+    }
+  
+    .navbar-nav .nav-item {
+      width: 100% !important;
+      text-align: center !important;
+      margin-bottom: 0.5rem !important;
+    }
+    
+}
+  
+  /* 로그인 박스 스타일 */
+  .login-wrapper {
+    width: 320px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    background-color: #f9faff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .login-wrapper h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .login-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .login-inputs input {
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .login-inputs input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px #007bff;
+  }
+  
+  .login-buttons button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 18px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-buttons button:hover {
+    background-color: #0056b3;
+  }
+  
+  .full-screen-center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 15vh;
+    width: 100%;
+    padding-top: 80px;
+    box-sizing: border-box;
+  }
+  
+  .login-box {
+    width: 360px;
+    margin: 0.5px;
+    padding: 30px 25px;
+    border: 3px solid #FFD07F;
+    border-radius: 10px;
+    background-color: rgba(255, 237, 183, 0.3);
+  }
+  
+  .login-box .btn-primary {
+    padding: 4px 12px;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-right: 5px;
+  }
+  
+  .login-box h1 {
+    text-align: center;
+    margin-bottom: 15px;
+  }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import instance from "../token/interceptors";
 import { useAuth } from "../components/layout/AuthProvider";
-
+import './Login.css';
 const Login = () => {
   const [inputs, setInputs] = useState({
     memberEmail: "",

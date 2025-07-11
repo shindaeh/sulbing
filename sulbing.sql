@@ -32,14 +32,14 @@ CREATE TABLE   board(
    CONSTRAINT board_memberEmail FOREIGN KEY(member_email) REFERENCES members(member_email)
 );
 
-ALTER TABLE board MODIFY (content VARCHAR2(200));
+ALTER TABLE board MODIFY (content VARCHAR2(300));
 
 
 
 SELECT * FROM members;
 
 
-SELECT * FROM board;
+
 
 COMMIT;
 
@@ -55,4 +55,6 @@ SELECT b FROM BoardEntity b WHERE b.num = :num;
 
 select * from board where board.num='2';
 
-DELETE from board where board.num='3';
+DELETE from board where board.num='9';
+
+SELECT * FROM board;

@@ -121,6 +121,17 @@ const BoardUpdate = () => {
                 value={content}
                 onChange={handleValueChange}
               ></textarea>
+              <div
+                style={{
+                  top: "100%",
+                  right: "0px",
+                  marginTop: "4px",
+                  marginBottom: "4px",
+                  marginLeft: "300px",
+                }}
+              >
+                {content.length}/200
+              </div>
             </td>
           </tr>
           <tr>
@@ -142,13 +153,43 @@ const BoardUpdate = () => {
           </tr>
         </tbody>
       </table>
-      <button className="btn btn-primary" onClick={handleUpdate}>
+      <button
+        className="btn btn-primary"
+        onClick={handleUpdate}
+        style={{
+          top: "100%",
+          right: "0px",
+          marginTop: "4px",
+          marginBottom: "4px",
+          marginLeft: "350px",
+        }}
+      >
         수정
       </button>
-      <button className="btn btn-primary" onClick={handleReset}>
+      <button
+        className="btn btn-primary"
+        onClick={handleReset}
+        style={{
+          top: "100%",
+          right: "0px",
+          marginTop: "4px",
+          marginBottom: "4px",
+          marginLeft: "5px",
+        }}
+      >
         취소
       </button>
-      <button className="btn btn-primary" onClick={handleBack}>
+      <button
+        className="btn btn-primary"
+        onClick={handleBack}
+        style={{
+          top: "100%",
+          right: "0px",
+          marginTop: "4px",
+          marginBottom: "4px",
+          marginLeft: "5px",
+        }}
+      >
         뒤로
       </button>
     </form>

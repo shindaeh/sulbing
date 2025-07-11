@@ -109,10 +109,19 @@ const BoardWrite = () => {
                   rows="13"
                   onChange={handleValueChange}
                 ></textarea>
+                <div
+                  style={{
+                    top: "100%",
+                    right: "0px",
+                    marginTop: "4px",
+                    marginBottom: "4px",
+                    marginLeft: "300px",
+                  }}
+                >
+                  {content.length}/200
+                </div>
               </td>
             </tr>
-
-            <tr>{content.length}/200</tr>
 
             <tr>
               <th width="20%" align="center">
@@ -130,10 +139,31 @@ const BoardWrite = () => {
             </tr>
           </tbody>
         </table>
-        <Link className="btn btn-primary" to={`/board/list/1`}>
+        <Link
+          className="btn btn-primary"
+          to={`/board/list/1`}
+          style={{
+            top: "100%",
+            right: "0px",
+            marginTop: "4px",
+            marginBottom: "4px",
+            marginLeft: "320px",
+          }}
+        >
           리스트
         </Link>
-        <input type="submit" className="btn btn-primary" value="등록" />
+        <input
+          type="submit"
+          className="btn btn-primary"
+          value="등록"
+          style={{
+            top: "100%",
+            right: "0px",
+            marginTop: "4px",
+            marginBottom: "4px",
+            marginLeft: "5px",
+          }}
+        />
       </form>
     </>
   );

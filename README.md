@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+http://192.168.0.198:3000/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
